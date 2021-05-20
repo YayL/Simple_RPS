@@ -53,7 +53,7 @@ class RPS:
                     print(self.handleWinner(random.randrange(1, 4)))  # Handle the winner stuff
                     break
                 else:
-                    print(f'{self.player_choice} is not a valid response!')
+                    print(f'That is not a valid response! Please read the question again!')
                     self.askPlayer()
 
         self.endGame()
