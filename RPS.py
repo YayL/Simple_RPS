@@ -84,7 +84,7 @@ def newGame():
                 break
         except ValueError:
             print('You must answer with an positive integer!')
-
+    print('I am alergic to kindness so only answer my questions exactly! You will not get anywhere with kindness.')
     RPS(name, rounds)  # Initialize a new game or somethign
 
 
