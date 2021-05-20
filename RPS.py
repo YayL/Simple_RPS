@@ -15,7 +15,13 @@ class RPS:
         self.play() # Start the game
 
     def askPlayer(self): # Ask the player what they pick for this round
-        self.player_choice = input('Choose between Rock(R), Paper(P) and Scissor(S)\n')[0].lower() # Get the first character in the answer lowercased
+        while True:
+            try:
+                self.player_choice = input('Choose between Rock(R), Paper(P) and Scissor(S)\n')[0].lower() # Get the first character in the answer lowercased
+                break
+            except:
+                print('There was a problem with your answer. Try again!')
+        
 
     def choiceToInt(self): # Get the numerical representation of the player choice
         return 1 if self.player_choice == 'r' else 2 if self.player_choice == 'p' else 3
@@ -40,7 +46,7 @@ class RPS:
     def play(self): # The main loop
         while self.roundsRemaining > 0:
             self.askPlayer()
-            print('\n' * 4) # Add some space between everything
+            print('\n' * 2) # Add some space between everything
             self.roundsRemaining -= 1
             while True:
                 if re.search(f'-{self.player_choice}', '-rock-paper-scissor'):  # Check if the answer is a valid answer
@@ -53,7 +59,7 @@ class RPS:
         self.endGame()
 
     def endGame(self):
-        print(f'Well played! The final result is\n' 
+        print(f'\nWell played! The final result is\n' 
               f'You: {self.player_score}\n'
               f'Mr.Rock: {self.computer_score}')  # Say farewell
         time.sleep(2)
@@ -74,7 +80,8 @@ def newGame():
     while True:
         try:
             rounds = int(input(f'Oh, hello {name}! How many rounds would you like to play?\n'))  # Should be obvious
-            break
+            if(rounds > 0):
+                break
         except ValueError:
             print('You must answer with an positive integer!')
 
