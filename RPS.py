@@ -76,6 +76,7 @@ class RPS:
 
 
 def newGame():
+    print('I am alergic to kindness so only answer my questions exactly! You will not get anywhere with kindness.')
     name = input('Hello, my name is Mr. Rock and you are?\n')  # Be polite and ask for their name
     while True:
         try:
@@ -84,7 +85,7 @@ def newGame():
                 break
         except ValueError:
             print('You must answer with an positive integer!')
-    print('I am alergic to kindness so only answer my questions exactly! You will not get anywhere with kindness.')
+   
     RPS(name, rounds)  # Initialize a new game or somethign
 
 
